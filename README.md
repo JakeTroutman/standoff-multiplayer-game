@@ -22,11 +22,19 @@ Created for the Handshake AI Skills Showcase with assistance from ChatGPT. I des
 
 Install **Node.js 24 or newer**. The root local server requires no third-party dependencies, API keys, account, or `npm install` step.
 
-1. Extract this ZIP, or clone the repository.
+1. Clone the repository, or use **Code → Download ZIP** and extract it.
 2. Open a terminal in the folder containing this README and `package.json`.
 3. Run:
 
 ```sh
+npm start
+```
+
+Or clone and start from the command line:
+
+```sh
+git clone https://github.com/JakeTroutman/standoff-multiplayer-game.git
+cd standoff-multiplayer-game
 npm start
 ```
 
@@ -85,27 +93,6 @@ Node may print an experimental SQLite warning on some versions; this does not in
 The deployed game uses **Vinext, Cloudflare Workers, and D1**. The local launcher imports the same hosted API and game rules with SQLite in place of D1. Server-side version checks and retries prevent simultaneous moves from overwriting each other. The client polls; it does not use WebSockets.
 
 The `hosted/` folder contains the actual deployed source. Its Site ID was removed. Redeploying it through Sites requires provisioning a new Site and database; these files do not grant access to the existing deployment. Use the root launcher for the documented local workflow. GitHub Pages alone cannot host this multiplayer backend.
-
-## Upload to GitHub
-
-1. Create an empty **Public** repository named `standoff`; do not initialize a README.
-2. Choose **uploading an existing file**, or **Add file → Upload files**.
-3. Upload the extracted folder's **contents**, including `hosted/`. Upload the source files, not the ZIP. Confirm `.gitignore` is included; create it manually if your browser upload omits it.
-4. Commit with `Add STANDOFF! source and local setup`.
-5. Add the live game URL to the repository's About section.
-
-Or use Git from this folder:
-
-```sh
-git init
-git add .
-git commit -m "Add STANDOFF! source and local setup"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/standoff.git
-git push -u origin main
-```
-
-Replace `YOUR_USERNAME` with your GitHub username. Authenticate through your credential manager; never include a token in source files or remote URLs.
 
 ## Export and licensing
 
